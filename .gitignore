@@ -4,5 +4,6 @@
 .env
 .env.local
 .env.build
-
 .vercel
+package-lock.json
+yarn.lock
