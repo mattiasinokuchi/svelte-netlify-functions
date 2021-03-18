@@ -4,12 +4,12 @@
   export let greeting;
 
   onMount(async () => {
-    const res = await fetch("/api/date");
-    const newDate = await res.text();
-    date = newDate;
     await fetch("/api/hello")
       .then((response) => response.json())
       .then((data) => (greeting = data.greeting));
+    const res = await fetch("/api/date");
+    const newDate = await res.text();
+    date = newDate;
   });
 </script>
 
@@ -48,7 +48,8 @@
     .
   </p>
   <br />
-  <h2>{greeting}</h2>
-  <h2>The date according to Node.js is:</h2>
-  <p>{date ? date : "Loading date..."}</p>
+  <h2>Hello serverless function!</h2>
+  <p>{greeting ? greeting : ""}</p>
+  <h2>{greeting ? "What day is it?" : ""}</h2>
+  <p>{date ? date : ""}</p>
 </main>
