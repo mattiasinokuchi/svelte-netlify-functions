@@ -1,11 +1,15 @@
 <script>
   import { onMount } from "svelte";
   export let date;
+  export let greeting;
 
   onMount(async () => {
     const res = await fetch("/api/date");
     const newDate = await res.text();
     date = newDate;
+    await fetch("/api/hello")
+      .then((response) => response.json())
+      .then((data) => (greeting = data.greeting));
   });
 </script>
 
@@ -22,7 +26,8 @@
     <a
       href="https://github.com/vercel/vercel/tree/master/examples/svelte"
       target="_blank"
-      rel="noreferrer noopener">
+      rel="noreferrer noopener"
+    >
       This project
     </a>
     is a
@@ -43,6 +48,7 @@
     .
   </p>
   <br />
+  <h2>{greeting}</h2>
   <h2>The date according to Node.js is:</h2>
-  <p>{date ? date : 'Loading date...'}</p>
+  <p>{date ? date : "Loading date..."}</p>
 </main>
