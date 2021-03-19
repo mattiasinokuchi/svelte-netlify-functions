@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import { onMount } from "svelte";
   export let date;
   export let greeting;
@@ -14,14 +15,13 @@
 </script>
 
 <main>
-  <h1>Svelte + Node.js API</h1>
-  <h2>
+  <h1>
     Deployed with
     <a href="https://vercel.com/docs" target="_blank" rel="noreferrer noopener">
       Vercel
     </a>
     !
-  </h2>
+  </h1>
   <p>
     <a
       href="https://github.com/vercel/vercel/tree/master/examples/svelte"
@@ -32,24 +32,19 @@
     </a>
     is a
     <a href="https://svelte.dev/">Svelte</a>
-    app with three directories,
-    <code>/public</code>
-    for static assets,
-    <code>/src</code>
-    for components and content, and
-    <code>/api</code>
-    which contains a serverless
+    app which contains two serverless
     <a href="https://nodejs.org/en/">Node.js</a>
-    function. See
-    <a href="/api/date">
-      <code>api/date</code>
-      for the Date API with Node.js
-    </a>
-    .
+    functions.
   </p>
   <br />
-  <h2>Hello serverless function!</h2>
-  <p>{greeting ? greeting : ""}</p>
-  <h2>{greeting ? "What day is it?" : ""}</h2>
-  <p>{date ? date : ""}</p>
+  <h2 transition:fade>Hello serverless function!</h2>
+  {#if greeting}
+    <p>{greeting}</p>
+  {/if}
+  {#if greeting}
+    <h2 transition:fade>What day is it?</h2>
+  {/if}
+  {#if greeting && date}
+    <p>{date}</p>
+  {/if}
 </main>
