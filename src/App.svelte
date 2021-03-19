@@ -5,9 +5,9 @@
   let greeting;
 
   onMount(async () => {
-    await fetch("/api/hello")
-      .then((response) => response.json())
-      .then((data) => (greeting = data.greeting));
+    let response = await fetch("/api/hello");
+    let object = await response.json();
+    greeting = object.greeting;
     const res = await fetch("/api/date");
     const newDate = await res.text();
     date = newDate;
