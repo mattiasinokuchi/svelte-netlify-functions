@@ -8,11 +8,13 @@
   onMount(async () => {
     await delay(2000);
     call = "Hello serverless function!";
+    await delay(1000);
     let response = await fetch("/api/hello");
     let object = await response.json();
     answer = object.greeting;
     await delay(2000);
     call = "What day is it?";
+    await delay(1000);
     response = await fetch("/api/date");
     const newDate = await response.text();
     answer = newDate;
