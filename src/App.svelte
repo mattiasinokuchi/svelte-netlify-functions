@@ -1,17 +1,30 @@
 <script>
   import { fade } from "svelte/transition";
   import { onMount } from "svelte";
+  let call;
+  let answer;
   let date;
-  let greeting;
 
   onMount(async () => {
+    await delay(2000);
+    call = "Hello serverless function!";
     let response = await fetch("/api/hello");
     let object = await response.json();
-    greeting = object.greeting;
-    const res = await fetch("/api/date");
-    const newDate = await res.text();
-    date = newDate;
+    answer = object.greeting;
+    await delay(2000);
+    call = "What day is it?";
+    response = await fetch("/api/date");
+    const newDate = await response.text();
+    answer = newDate;
   });
+
+  function delay(delayInms) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(2);
+      }, delayInms);
+    });
+  }
 </script>
 
 <main>
@@ -37,14 +50,10 @@
     functions.
   </p>
   <br />
-  <h2 transition:fade>Hello serverless function!</h2>
-  {#if greeting}
-    <p>{greeting}</p>
+  {#if call}
+    <h2 transition:fade>{call}</h2>
   {/if}
-  {#if greeting}
-    <h2 transition:fade>What day is it?</h2>
-  {/if}
-  {#if greeting && date}
-    <p>{date}</p>
+  {#if answer}
+    <p transition:fade>{answer}</p>
   {/if}
 </main>
