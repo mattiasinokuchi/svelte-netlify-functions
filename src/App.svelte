@@ -33,16 +33,17 @@
 
 <main>
   <p>
+    This project is a
+    <a href="https://svelte.dev/">Svelte</a>
+    app deployed with
     <a
       href="https://github.com/vercel/vercel/tree/master/examples/svelte"
       target="_blank"
       rel="noreferrer noopener"
     >
-      This project
+      Vercel
     </a>
-    is a
-    <a href="https://svelte.dev/">Svelte</a>
-    app which contains two serverless
+    which contains two serverless
     <a href="https://nodejs.org/en/">Node.js</a>
     functions.
   </p>
