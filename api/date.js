@@ -1,4 +1,5 @@
 export default (req, res) => {
-  const date = new Date().toString();
-  res.status(200).send(date);
+  const date = new Date();
+  const day = date.toLocaleString('en-us', {weekday: 'long'});
+  res.status(200).send(day);
 };

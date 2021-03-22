@@ -2,7 +2,6 @@
   import { fade } from "svelte/transition";
   import { onMount } from "svelte";
   let showText;
-  let date;
 
   onMount(async () => {
     await delay(1000);
@@ -16,11 +15,11 @@
     showText = false;
     await delay(1000);
     showText = "What day is it?";
-    await delay(2000);
+    await delay(1000);
     showText = false;
     response = await fetch("/api/date");
-    const newDate = await response.text();
-    showText = newDate;
+    let day = await response.text();
+    showText = day;
   });
 
   function delay(delayInms) {
