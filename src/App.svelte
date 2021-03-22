@@ -12,6 +12,8 @@
     let object = await response.json();
     text = object.greeting;
     await delay(2000);
+    text = false;
+    await delay(1000);
     text = "What day is it?";
     await delay(1000);
     response = await fetch("/api/date");
