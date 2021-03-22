@@ -17,7 +17,7 @@
     showText = "What day is it?";
     await delay(1000);
     showText = false;
-    response = await fetch("/api/date");
+    response = await fetch("/api/day");
     let day = await response.text();
     showText = day;
   });
