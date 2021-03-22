@@ -20,6 +20,16 @@
     response = await fetch("/api/day");
     let day = await response.text();
     showText = day;
+    await delay(2000);
+    showText = false;
+    await delay(1000);
+    showText = "Where am I?";
+    await delay(1000);
+    showText = false;
+    await delay(1000);
+    response = await fetch("http://ip-api.com/json/");
+    let place = await response.json();
+    showText = place.city + " in " + place.country + "?";
   });
 
   function delay(delayInms) {
