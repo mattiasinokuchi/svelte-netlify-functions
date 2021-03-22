@@ -1,6 +1,8 @@
 <script>
   import { fade } from "svelte/transition";
   import { onMount } from "svelte";
+  let callVisible = false;
+  let answerVisible = false;
   let call;
   let answer;
   let date;
@@ -30,13 +32,6 @@
 </script>
 
 <main>
-  <h1>
-    Deployed with
-    <a href="https://vercel.com/docs" target="_blank" rel="noreferrer noopener">
-      Vercel
-    </a>
-    !
-  </h1>
   <p>
     <a
       href="https://github.com/vercel/vercel/tree/master/examples/svelte"
