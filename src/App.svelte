@@ -14,22 +14,13 @@
     await delay(2000);
     showText = false;
     await delay(1000);
-    showText = "What day is it?";
-    await delay(1000);
-    showText = false;
-    response = await fetch("/api/day");
-    let day = await response.text();
-    showText = day;
-    await delay(2000);
-    showText = false;
-    await delay(1000);
-    showText = "Where am I?";
+    showText = "Where are you?";
     await delay(1000);
     showText = false;
     await delay(1000);
     response = await fetch("/api/place");
     let place = await response.json();
-    showText = place.city + " in " + place.country + "?";
+    showText = "I'm in " + place.city + ", " + place.country + "!";
   });
 
   function delay(delayInms) {
