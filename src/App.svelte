@@ -19,8 +19,8 @@
     showText = false;
     await delay(1000);
     response = await fetch("/api/place");
-    let place = await response.json();
-    showText = "I'm in " + place.city + ", " + place.country + "!";
+    object = await response.json();
+    showText = object.answer;
   });
 
   function delay(delayInms) {
