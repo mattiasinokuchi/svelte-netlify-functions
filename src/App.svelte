@@ -27,7 +27,7 @@
     await delay(1000);
     showText = false;
     await delay(1000);
-    response = await fetch("http://ip-api.com/json/");
+    response = await fetch("/api/place");
     let place = await response.json();
     showText = place.city + " in " + place.country + "?";
   });

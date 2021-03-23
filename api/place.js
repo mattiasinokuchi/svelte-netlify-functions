@@ -1,3 +1,7 @@
-export default (req, res) => {
-  res.json({ ipaddress: req.headers["x-forwarded-for"].split(",")[0] });
+const fetch = require('node-fetch');
+
+export default async (req, res) => {
+  let response = await fetch("http://ip-api.com/json/");
+  let place = await response.json();
+  res.json(place);
 }
