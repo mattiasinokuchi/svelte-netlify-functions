@@ -8,7 +8,7 @@
     showText = "Hello serverless function!";
     await delay(2000);
     showText = false;
-    let response = await fetch("/api/hello");
+    let response = await fetch("/netlify/functions/hello");
     let object = await response.json();
     showText = object.greeting;
     await delay(2000);
@@ -18,7 +18,7 @@
     await delay(1000);
     showText = false;
     await delay(1000);
-    response = await fetch("/api/place");
+    response = await fetch("/netlify/functions/place");
     object = await response.json();
     showText = object.answer;
   });
