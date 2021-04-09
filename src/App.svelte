@@ -38,11 +38,11 @@
     <a href="https://svelte.dev/">Svelte</a>
     app deployed with
     <a
-      href="https://github.com/vercel/vercel/tree/master/examples/svelte"
+      href="https://www.netlify.com/"
       target="_blank"
       rel="noreferrer noopener"
     >
-      Vercel
+      Netlify
     </a>
     which contains two serverless
     <a href="https://nodejs.org/en/">Node.js</a>
