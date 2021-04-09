@@ -9,6 +9,7 @@
     await delay(2000);
     showText = false;
     let response = await fetch("/netlify/functions/hello");
+    console.log(response);
     let object = await response.json();
     showText = object.greeting;
     await delay(2000);
